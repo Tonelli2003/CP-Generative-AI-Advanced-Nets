@@ -1,0 +1,38 @@
+# =============================================
+# DEPENDÊNCIAS DO PROJETO PREDICTA RAG
+# Compatível com Python 3.12, 3.13 e 3.14
+# =============================================
+
+# ── Web Framework ─────────────────────────────
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+
+# ── Configurações e Variáveis de Ambiente ──────
+pydantic-settings>=2.2.1
+python-dotenv>=1.0.1
+
+# ── LLM - Groq (LLaMA3) ───────────────────────
+# groq>=0.11 usa httpx>=0.27 que não tem o bug do atributo _state
+groq>=0.11.0
+
+# ── Embeddings Locais (384 dims, sem GPU) ──────
+# numpy>=2.0 já possui wheels binários para Python 3.13 e 3.14 no Windows
+numpy>=2.0.0
+sentence-transformers>=3.0.1
+
+# ── Banco de Dados Vetorial ────────────────────
+# Versão recente sem forçar compilação de grpcio-tools no Windows.
+# O cliente é usado via REST (QdrantClient(host=..., port=...)),
+# portanto o transporte gRPC não é ativado em runtime.
+qdrant-client>=1.11.0
+
+# ── Pipeline de Ingestão (scripts/index_documents.py) ──
+# Leitura de PDF — estratégia primária
+PyPDF2>=3.0.1
+
+# Leitura de PDF — fallback robusto (PDFs com tabelas/colunas)
+pdfplumber>=0.11.0
+
+# ── Front-end (app.py — Streamlit) ────────────
+streamlit>=1.35.0
+requests>=2.32.0

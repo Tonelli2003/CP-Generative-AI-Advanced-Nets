@@ -1,0 +1,81 @@
+# ===========================================
+# SEGURANÇA — Nunca versionar estes arquivos
+# ===========================================
+.env
+*.pem
+*.key
+
+# ===========================================
+# BANCO VETORIAL — Dados locais do Qdrant
+# ===========================================
+qdrant_storage/
+
+# ===========================================
+# MODELOS — Cache do HuggingFace / Sentence Transformers
+# ===========================================
+.cache/
+~/.cache/huggingface/
+sentence_transformers_cache/
+models/
+
+# ===========================================
+# PYTHON
+# ===========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
+.env.local
+
+# Build / Distribuição
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# Testes e cobertura
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Type checkers e linters
+.mypy_cache/
+.ruff_cache/
+
+# ===========================================
+# IDEs e Editores
+# ===========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ===========================================
+# DOCKER
+# ===========================================
+# Volumes locais do Docker Compose
+docker-volumes/
+
+# ===========================================
+# LOGS
+# ===========================================
+*.log
+logs/
+
+# ===========================================
+# PERMITIDOS EXPLICITAMENTE
+# ===========================================
+# .env.example deve ser versionado
+!.env.example
