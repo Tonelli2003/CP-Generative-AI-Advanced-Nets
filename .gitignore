@@ -11,14 +11,6 @@
 qdrant_storage/
 
 # ===========================================
-# MODELOS — Cache do HuggingFace / Sentence Transformers
-# ===========================================
-.cache/
-~/.cache/huggingface/
-sentence_transformers_cache/
-models/
-
-# ===========================================
 # PYTHON
 # ===========================================
 __pycache__/
