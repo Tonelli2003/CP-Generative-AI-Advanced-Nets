@@ -93,22 +93,17 @@ Usuário (Front-end / Cliente HTTP)
 ## 📂 Estrutura do Projeto
 
 ```text
-back-end/
-├── src/
-│   ├── routes/               # Endpoints FastAPI (futuras expansões)
-│   ├── services/
-│   │   ├── ai_service.py     # BaseLLMService (ABC) + GroqRAGService
-│   │   ├── vector_store.py   # VectorStoreService (Qdrant)
-│   │   └── chat_orchestrator.py # Orquestrador do fluxo RAG
-│   ├── models/
-│   │   └── chat.py           # Schemas Pydantic (ChatRequest, ChatResponse)
-│   └── config/
-│       └── settings.py       # Configurações via pydantic-settings
-├── .env.example              # Template de variáveis de ambiente
-├── .env                      # Credenciais locais (NÃO versionado)
-├── .gitignore                # Ignora .env, qdrant_storage/, .venv/, etc.
-├── docker-compose.yml        # Orquestração do Qdrant via Docker
-├── requirements.txt          # Dependências do projeto
+├── backend/
+│   ├── src/                  # Código-fonte do FastAPI
+│   ├── data/                 # Documentos brutos (PDFs)
+│   ├── scripts/              # Scripts de ingestão
+│   ├── docker-compose.yml    # Orquestração do Qdrant
+│   ├── .env.example
+│   └── requirements.txt      # Dependências do backend (e frontend)
+├── frontend/
+│   └── app.py                # Interface Streamlit
+├── .venv/                    # Ambiente virtual (na raiz)
+├── .gitignore
 └── README.md
 ```
 
@@ -142,7 +137,7 @@ back-end/
 
 ```bash
 git clone <url-do-repositorio>
-cd back-end
+cd <nome-do-repositorio>
 ```
 
 ### 2. Configure as variáveis de ambiente
@@ -194,11 +189,12 @@ pip install -r requirements.txt
 
 ### 5. Execute o Back-end e o Front-end
 
-O projeto requer **dois terminais abertos simultaneamente** na raiz do projeto.
+O projeto requer **dois terminais abertos simultaneamente**. Como organizamos o projeto em pastas, você precisa entrar na pasta respectiva em cada terminal.
 
 **Terminal 1 — Back-end (FastAPI)**
 
 ```bash
+cd backend
 python -m uvicorn src.main:app --reload
 ```
 
@@ -212,6 +208,7 @@ Documentação interativa (Swagger UI): **`http://localhost:8000/docs`**
 **Terminal 2 — Front-end (Streamlit)**
 
 ```bash
+cd frontend
 streamlit run app.py
 ```
 
